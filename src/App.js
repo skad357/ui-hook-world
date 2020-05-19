@@ -14,7 +14,7 @@ function App() {
   const cockTailDBLink = "https://www.thecocktaildb.com";
   return (
     <Router>
-      <div className="row h-100 align-items-center">
+      <div className="row h-100 align-items-center m-0">
         <Switch>
           <Route path="/pixabay-view">
             <Pixabay />
@@ -27,19 +27,14 @@ function App() {
             <WelcomeWrapper
               head={headTitle}
               body={bodyMessage}
-              className="mt-3"
             >
               <ImageLinker imgUrl={pixabayImg} imgLink={pixabayLink} />
-              <Link to="/pixabay-view">
-                <a href="#" className="text-primary">
+              <Link to="/pixabay-view" className="text-primary">
                   Go to Pixabay Mini Project
-                </a>
               </Link>
               <ImageLinker imgUrl={cockTailDBImg} imgLink={cockTailDBLink} />
-              <Link to="/cocktail-view">
-                <a href="#" className="text-primary">
+              <Link to="/cocktail-view" className="text-primary">
                   Go to CockTailDB Mini Project
-                </a>
               </Link>
             </WelcomeWrapper>
           </Route>

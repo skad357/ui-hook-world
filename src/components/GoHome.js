@@ -8,15 +8,16 @@ const FixedButton = styled.button`
   position: fixed;
   top: 2rem;
   right: 2rem;
-  border-radius: 1rem;
+  border-radius: 90%;
   padding: 0.5rem;
   color: white;
   font-weight: bolder;
+  border:none;
 `;
 const GoHome = () => {
   return (
     <Link to="/">
-      <FixedButton>Go to Home</FixedButton>
+      <FixedButton>Back</FixedButton>
     </Link>
   );
 };
