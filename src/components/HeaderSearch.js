@@ -12,8 +12,8 @@ const imageTypeOptions = [
 
 const HeaderSearch = ({ title }) => {
   const [search, setSearch] = useState({
-    picSearch: "",
-    picType: "all",
+    picSearch: '',
+    picType: 'all',
   });
   const [emptySearchError, setemptySearchError] = useState(false);
   const { findImages,setPage } = useContext(PixabayImgContext);
@@ -27,7 +27,7 @@ const HeaderSearch = ({ title }) => {
 
   return (
     <form
-      className="align-self-start w-75 mt-4 mx-auto text-center"
+      className="w-75 pt-4 mx-auto text-center"
       onSubmit={(e) => {
         e.preventDefault();
         if (search.picSearch) {
@@ -39,7 +39,7 @@ const HeaderSearch = ({ title }) => {
         setemptySearchError(true);
       }}
     >
-      <h2 className="mt-2 mb-4">{title}</h2>
+      <h2 className="pt-2 mb-4">{title}</h2>
       <div className="row">
         <div className="form-group col-md-6">
           <input

@@ -14,7 +14,7 @@ function App() {
   const cockTailDBLink = "https://www.thecocktaildb.com";
   return (
     <Router>
-      <div className="row h-100 align-items-center m-0">
+      <div className="d-flex flex-column h-100">
         <Switch>
           <Route path="/pixabay-view">
             <Pixabay />

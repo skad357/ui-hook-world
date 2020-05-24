@@ -42,6 +42,7 @@ const ImageListView = () => {
           ) : null}
           <RoundButton>
             <button onClick={nextPage}>&#8250;</button>
+            
           </RoundButton>
         </div>
       ) : null}

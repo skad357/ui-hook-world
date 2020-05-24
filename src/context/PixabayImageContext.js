@@ -9,8 +9,8 @@ const PixabayImgProvider = (props) => {
   const [page, setPage] = useState(1)
 
   const [searchImages, findImages] = useState({
-    picSearch: "",
-    picType: "",
+    picSearch: '',
+    picType: '',
   });
 
   useEffect(() => {
