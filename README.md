@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## SmallTalk
-=================================================================================
+
 Taking advantage due quarantine I am updating my Github Profile, because the last 6 years i was basically coding for some software consulting companies but under **propietary** licenses.  
 So I don't have something of public domain or completely accessible that's why i am creating some small/medium projects with (A2,react,vue,node js)
-=================================================================================
+
 
 
 # About the project
