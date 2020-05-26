@@ -1,34 +1,46 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import DrinkView from "../components/DrinkView";
 import { CockTailContext } from "../context/CockTailContext";
 
 const DrinkList = () => {
-  const { drinkList } = useContext(CockTailContext);
-
-  const [drink, setdrink] = useState("");
+  const {
+    drinkFilterList,
+    filterDrink,
+    drinkList,
+    categorySelection,
+    setdrinkSearch,
+    drinkSearch,
+  } = useContext(CockTailContext);
 
   const onDrinkName = (e) => {
-    setdrink(e.target.value);
-
-    // const filtered = 
-    // setdrinkList(drink.strDrink.toLowerCase().search(e.target.value.toLowerCase() == 0));
+    setdrinkSearch(e.target.value);
+    filterDrink(e.target.value);
   };
 
   return (
     <>
-      <div className="ml-4 mt-3">
-        <label className="mr-3 text-white font-weight-bold"> SEARCH</label>
-        <input
-          className="w-25 pl-2 py-1 border border-secondary rounded"
-          placeholder="Input Drink Name"
-          name="drink"
-          type="text"
-          value={drink}
-          onChange={onDrinkName}
-        />
-      </div>
+      {/* {categorySelection}gh */}
+      {drinkList.length === 0 && !categorySelection ? (
+        <h2 className="text-center my-4">
+          {" "}
+          No Results select an option &amp; Drink Type
+        </h2>
+      ) : (
+        <div className="ml-4 mt-3">
+          <label className="mr-3 text-white font-weight-bold"> SEARCH</label>
+          <input
+            className="w-25 pl-2 py-1 border border-secondary rounded"
+            placeholder="Input Drink Name"
+            name="drink"
+            type="text"
+            value={drinkSearch}
+            onChange={onDrinkName}
+          />
+        </div>
+      )}
+
       <div className="d-flex flex-wrap justify-content-center">
-        {drinkList.map((drink) => (
+        {drinkFilterList.map((drink) => (
           <DrinkView key={drink.idDrink} drink={drink} />
         ))}
       </div>

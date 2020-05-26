@@ -3,6 +3,7 @@ import GoHome from "../components/GoHome";
 import Header from "../components/Header";
 import CockTailCategoryOption from "../components/CockTailCategoryOption";
 import CockTailProvider from "../context/CockTailContext";
+import ModalProvider from "../context/ModalContext";
 import CockTailSelector from "../components/CockTailSelector";
 import DrinkList from "../components/DrinkList";
 
@@ -36,27 +37,28 @@ const COCKTAIL_CATEGORIES = [
 ];
 const CockTailDB = () => {
   return (
-    <CockTailProvider>
-      <GoHome className="position-fixed" />
-      <Header title={COCKTAILDB_HEADER_MESSAGE} />
-      <div className="bg-primary">
-        <h1 className="text-center my-4">List Cocktails By </h1>
-        <div className="d-flex flex-nowrap justify-content-center mb-2">
-          {COCKTAIL_CATEGORIES.map((option) => (
-            <CockTailCategoryOption key={option.query} option={option} />
-          ))}
+    <ModalProvider>
+      <CockTailProvider>
+        <GoHome className="position-fixed" />
+        <Header title={COCKTAILDB_HEADER_MESSAGE} />
+        <div className="bg-primary">
+          <h1 className="text-center my-4">List Cocktails By </h1>
+          <div className="d-flex flex-nowrap justify-content-center mb-2">
+            {COCKTAIL_CATEGORIES.map((option) => (
+              <CockTailCategoryOption key={option.query} option={option} />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="d-flex bg-secondary flex-grow-1">
-        <div className="w-25 bg-danger">
-          <CockTailSelector />
+        <div className="d-flex bg-secondary flex-grow-1">
+          <div className="w-25 bg-danger">
+            <CockTailSelector />
+          </div>
+          <div className="w-75 bg-gray vh-100 overflow-auto">
+            <DrinkList />
+          </div>
         </div>
-        <div className="w-75 bg-gray vh-100 overflow-auto">
-            <DrinkList/>
-
-        </div>
-      </div>
-    </CockTailProvider>
+      </CockTailProvider>
+    </ModalProvider>
   );
 };
 

@@ -9,7 +9,17 @@ const CockTailProvider = (props) => {
   const [drinkList, setdrinkList] = useState([]);
   const [pendingCategoryLoad, setpendingCategoryLoad] = useState(false);
   const [categorySelection, setcategorySelection] = useState("");
-  const [drinkFilter, setdrinkFilter] = useState([]);
+  const [drinkFilterList, setdrinkFilterList] = useState([]);
+  const [drinkSearch, setdrinkSearch] = useState('');
+
+  const filterDrink = (drinkSearch) => {
+    if (drinkSearch.trim().length === 0) {
+        setdrinkFilterList(drinkList);
+    }else{
+        const filterSearch = drinkList.filter(d=>d.strDrink.toLowerCase().indexOf(drinkSearch.toLowerCase())===0);
+        setdrinkFilterList(filterSearch);
+    }
+  };
 
   useEffect(() => {
     const getList = async () => {
@@ -28,7 +38,6 @@ const CockTailProvider = (props) => {
               ind: index,
             };
           });
-          //   console.log(dataFormat);
           setlist(dataFormat);
         }
       }
@@ -39,18 +48,19 @@ const CockTailProvider = (props) => {
   useEffect(() => {
     const getDrinks = async () => {
       if (queryFilter) {
-        console.log("get data", queryFilter, categorySelection);
         const result = await Fetch.cockTaildbApi(
           `/filter.php?${queryFilter}=${categorySelection}`
         );
         if (result.status !== "error") {
           setdrinkList(result.drinks);
+          setdrinkFilterList(result.drinks);
+          setdrinkSearch('');
         }
       }
     };
     getDrinks();
+    // eslint-disable-next-line
   }, [categorySelection]);
-
 
   return (
     <CockTailContext.Provider
@@ -60,8 +70,13 @@ const CockTailProvider = (props) => {
         setqueryFilter,
         list,
         setcategorySelection,
+        drinkFilterList,
+        // setdrinkSearch,
+        filterDrink,
         drinkList,
-        setdrinkList,
+        categorySelection,
+        setdrinkSearch,
+        drinkSearch
       }}
     >
       {props.children}
