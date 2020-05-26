@@ -15,5 +15,22 @@ to show some usefull information using hooks from React 16.8
 
 Any Suggestion or something just send me a message to jjaulisr@gmail.com and sorry for the UI/UX i am a bad designer but i am doing this also to enhance my poor UI skills .
 
+# Run the project
+
+Just npm run start
+**The Live Project is in Netlify**. Check it out in https://silly-wiles-c0b044.netlify.app
+
+
+# Code Refactoring / Enhancements
+
+- Unit Testing (0%)
+- Responsive Design (40%) 
+- The UI UX is poor i am not a designer but i am reading books about it. 
+
+
+
+
+
+
 
 
